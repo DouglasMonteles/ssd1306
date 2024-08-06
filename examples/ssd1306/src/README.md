@@ -4,12 +4,13 @@
 
 [tocstart]: # (toc start)
 
-  * [Introduction](#introduction)
-  * [Key Features](#key-features)
-  * [Supported displays](#supported-displays)
-  * [Supported platforms](#supported-platforms)
-  * [Setting up](#setting-up)
-  * [License](#license)
+- [ssd1306 library introduction # {#index}](#ssd1306-library-introduction--index)
+  - [Introduction](#introduction)
+  - [Key Features](#key-features)
+  - [Supported displays:](#supported-displays)
+  - [Supported platforms](#supported-platforms)
+  - [Setting up](#setting-up)
+  - [License](#license)
 
 [tocend]: # (toc end)
 
@@ -167,3 +168,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+./build_and_run.sh -p linux -f flash
+
+(acessa o main.cpp)

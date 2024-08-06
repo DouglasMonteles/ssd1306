@@ -1,7 +1,7 @@
 /*
     MIT License
 
-    Copyright (c) 2018, Alexey Dynda
+    Copyright (c) 2016-2018, Alexey Dynda
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -22,43 +22,13 @@
     SOFTWARE.
 */
 
-#ifdef SDL_EMULATION
-#include "sdl_core.h"
+#ifndef _SOVA_H_
+#define _SOVA_H_
+
+// ----------------------------------------------------------------------------
+#include "ssd1306_hal/io.h"
+#include <stdint.h>
+
+extern const uint8_t Sova [] PROGMEM;
+
 #endif
-
-#include "ssd1306.h"
-
-// extern void setup(void);
-//extern void loop(void);
-
-static void textDemo()
-{
-    ssd1306_setFixedFont(ssd1306xled_font6x8);
-    ssd1306_clearScreen();
-    ssd1306_printFixed(0,  8, "Teste Rasp43", STYLE_NORMAL);
-}
-
-
-int setup()
-{
-    /* Select the font to use with menu and all font functions */
-    ssd1306_setFixedFont(ssd1306xled_font6x8);
-
-    ssd1306_128x64_i2c_init();
-
-    ssd1306_clearScreen();
-    textDemo();
-    return 0;
-}
-
-void main(void)
-{
-    setup();
-    // for(;;)
-    // {
-    //     loop();
-#ifdef SDL_EMULATION
-        sdl_read_analog(0);
-#endif
-    // }
-}

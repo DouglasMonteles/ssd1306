@@ -32,7 +32,7 @@
 default: all
 
 DESTDIR ?=
-BLD ?= ../bld
+BLD ?= ../../bld
 BACKSLASH?=/
 MKDIR?=mkdir -p
 convert=$(subst /,$(BACKSLASH),$1)

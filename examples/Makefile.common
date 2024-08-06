@@ -37,7 +37,7 @@
 default: all
 
 DESTDIR ?=
-BLD ?= ../bld
+BLD ?= ./bld
 PROJECT ?= ssd1306_demo
 PROJECTS = $(subst /,,$(wildcard */))
 BACKSLASH?=/
@@ -77,7 +77,7 @@ endif
 
 INCLUDES += \
 	-I./$(PROJECT) \
-	-I../src
+	-I./ssd1306/src
 
 CXXFLAGS +=  -fno-rtti
 
@@ -89,7 +89,8 @@ CCFLAGS += -MD -g -Os -w -ffreestanding $(INCLUDES) -Wall -Werror \
 
 SRCS += main.cpp \
        $(wildcard $(PROJECT)/*.cpp) \
-       $(wildcard $(PROJECT)/*.ino)
+       $(wildcard $(PROJECT)/*.ino) \
+			 $(wildcard $(PROJECT)/*.c)
 
 OBJS = $(addprefix $(BLD)/, $(addsuffix .o, $(basename $(SRCS))))
 
@@ -98,7 +99,7 @@ LDFLAGS += -L$(BLD) -lssd1306
 ####################### Compiling library #########################
 
 ssd1306:
-	$(MAKE) -C ../src -f Makefile.$(platform) MCU=$(MCU) SDL_EMULATION=$(SDL_EMULATION) \
+	$(MAKE) -C ./ssd1306/src -f Makefile.$(platform) MCU=$(MCU) SDL_EMULATION=$(SDL_EMULATION) \
 	                     ADAFRUIT=$(ADAFRUIT)
 
 all: $(OUTFILE)

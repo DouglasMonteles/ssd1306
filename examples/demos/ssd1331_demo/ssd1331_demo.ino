@@ -212,40 +212,5 @@ void setup()
 
 void loop()
 {
-    delay(1000);
-    switch (ssd1306_menuSelection(&menu))
-    {
-        case 0:
-            bitmapDemo();
-            break;
-
-        case 1:
-            spriteDemo();
-            break;
-
-        case 2:
-            textDemo();
-            break;
-
-        case 3:
-            canvasDemo();
-            break;
-
-        case 4:
-            drawLinesDemo();
-            break;
-
-        default:
-            break;
-    }
-    if ((menu.count - 1) == ssd1306_menuSelection(&menu))
-    {
-         ssd1331_setRotation((++rotation) & 0x03);
-    }
-    ssd1306_clearScreen8( );
-    ssd1306_setColor(RGB_COLOR8(255,255,255));
-    ssd1306_showMenu8(&menu);
-    delay(500);
-    ssd1306_menuDown(&menu);
-    ssd1306_updateMenu8(&menu);
+    textDemo();
 }
